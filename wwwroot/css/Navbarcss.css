@@ -1,0 +1,109 @@
+﻿#itemsNavbar {
+    background-color: black;
+}
+
+    #itemsNavbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+    #itemsNavbar a:hover, .dropdown:hover .dropbtn {
+        background-color: red;
+    }
+
+.dropdown-content {
+    float: right;
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 126px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        float: left;
+        color: red;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+    #itemsNavbar a:hover, .dropdown2:hover .dropbtn {
+        background-color: red;
+    }
+
+.dropdown-content2 {
+    float: right;
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 100%;
+}
+
+    .dropdown-content2 a {
+        float: left;
+        color: red;
+        padding: 20px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+    }
+
+        .dropdown-content2 a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+.dropdown2 .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}

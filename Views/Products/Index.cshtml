@@ -1,0 +1,144 @@
+﻿@model IEnumerable<GamingStoreProject.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrerntPage;
+
+    }
+}
+<link rel="stylesheet" href="~/css/crud.css" />
+<link rel="slideshow" href ="~/css/slideshow.css" />
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Home.css" />
+    <link rel="stylesheet" href="~/css/Navbarcss.css" />
+</head>
+<header>
+    <div id="itemsNavbar">
+
+        <a asp-controller="PCs" asp-action="Index">Computers</a>
+        <a asp-controller="Laptops" asp-action="Index">Laptops</a>
+
+        <a asp-controller="Monitors" asp-action="Index">Monitors</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Accessories
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a asp-controller="Mouses" asp-action="Index">Mouses</a>
+                <a asp-controller="MousePads" asp-action="Index">MousePads</a>
+                <a asp-controller="Keyboards" asp-action="Index">Keyboards</a>
+                <a asp-controller="Headphones" asp-action="Index">Headphones</a>
+            </div>
+        </div>
+
+        <div class="dropdown2">
+            <button class="dropbtn">
+                Hardware Components
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content2">
+                <a asp-controller="GraphicCards" asp-action="Index">GraphicCards</a>
+                <a asp-controller="CPUs" asp-action="Index">CPUs</a>
+            </div>
+        </div>
+        <form asp-controller="Products" asp-action="Search" method="get" style="display:inline-block;float:right;margin-top:11px">
+            <p>
+                <input type="text" name="descriptionString" placeholder="Search.." />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+    </div>
+</header>
+<body>
+    @*<div id="advertisement">*@
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides">
+                
+                <img src="~/SlideshowImages/wp7169984.jpg" style="width:100%; height: 600px">
+                @*<div class="text">Caption Text</div>*@
+            </div>
+
+            <div class="mySlides">
+                
+                <img src="~/SlideshowImages/pic2.jpg" style="width: 100%; height: 600px">
+                @*<div class="text">Caption Two</div>*@
+            </div>
+
+            <div class="mySlides">
+               
+                <img src="~/SlideshowImages/pic3.jpg" style="width: 100%; height: 600px">
+                @*<div class="text">Caption Three</div>*@
+            </div>
+
+            <!-- Next and previous buttons -->
+            @*<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>*@
+        @*</div>*@
+        
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+
+    </div>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <div id="main-div">
+        @foreach (var item in Model)
+        {
+            <div id="child-div">
+                <div>
+                    <img id="image" src="@item.Image" />
+                </div>
+                <div id="description">
+                    <span id="description-text">@Html.DisplayFor(modelItem => item.Description)</span><br />
+                </div>
+
+                <div id="price">
+                    <span>@Html.DisplayFor(modelItem => item.Price) €</span>
+                </div>
+                
+
+
+
+                @*<div id="crud-buttons-area">
+                    <button class="crud-button"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></button>
+                    <button class="crud-button"><a asp-action="Details" asp-route-id="@item.Id">Details</a></button>
+                    <button class="crud-button"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></button>
+                </div>*@
+                <div id="add-to-cart-div"><button id="add-to-cart-button"><a id="add-to-cart-button-link" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">Add to Cart</a></button></div>
+
+            </div>
+
+
+        }
+    </div>
+
+
+
+</body>
+</html>
+<script type="text/javascript" src ="~/js/slideshow.js"></script>
+
+<partial name="_pagerproduct" model="@pager" />
+

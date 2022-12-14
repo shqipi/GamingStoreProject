@@ -1,0 +1,109 @@
+﻿@model IEnumerable<GamingStoreProject.Models.Mouse>
+
+@{
+    ViewData["Title"] = "Index";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrerntPage;
+
+    }
+}
+<div id="itemsNavbar">
+
+    <a asp-controller="PCs" asp-action="Index">Computere</a>
+    <a asp-controller="Laptops" asp-action="Index">Laptops</a>
+
+    <a asp-controller="Monitors" asp-action="Index">Monitors</a>
+    <div class="dropdown">
+        <button class="dropbtn">
+            Accessories
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a asp-controller="Mouses" asp-action="Index">Mouses</a>
+            <a asp-controller="MousePads" asp-action="Index">MousePads</a>
+            <a asp-controller="Keyboards" asp-action="Index">Keyboards</a>
+            <a asp-controller="Headphones" asp-action="Index">Headphones</a>
+        </div>
+    </div>
+
+    <div class="dropdown2">
+        <button class="dropbtn">
+            Hardware Components
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content2">
+            <a asp-controller="GraphicCards" asp-action="Index">GraphicCards</a>
+            <a asp-controller="CPUs" asp-action="Index">CPUs</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="~/css/crud.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/css/Navbarcss.css" />
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <link rel="stylesheet" href="~/css/crud.css" />
+</p>
+<form asp-controller="Mouses" asp-action="Search" method="get">
+    <p>
+        Description: <input type="text" name="descriptionString" placeholder="Search.." />
+        Min Price:<input type="text" name="minPrice" placeholder="Price" />
+        Max Price: <input type="text" name="maxPrice" placeholder="Price" />
+        <label>Wireless: </label>
+        <select name="wireless">
+            <option value="--">--</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <input type="submit" value="Select" />
+    </p>
+</form>
+<div id="main-div">
+    @foreach (var item in Model)
+    {
+        <div id="child-div">
+            <div>
+                <img src="@item.Image" style="padding-top: 5%; height: 210px; width: 110px; margin-left: 30%;" />
+            </div>
+            <div id="description">
+                <span id="description-text">@Html.DisplayFor(modelItem => item.Description)</span><br />
+            </div>
+
+            <div id="price">
+                <span>@Html.DisplayFor(modelItem => item.Price) €</span>
+            </div>
+            <div>
+                Wireless: <span id="warranty">@Html.DisplayFor(modelItem => item.Wireless)</span>
+            </div>
+            @if (item.Discount < 0)
+            {
+                <div id="discount">
+                    <span>@item.Discount %</span>
+                </div>
+            }
+
+
+
+            <div id="crud-buttons-area">
+                    <button class="crud-button"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></button>
+                    <button class="crud-button"><a asp-action="Details" asp-route-id="@item.Id">Details</a></button>
+                    <button class="crud-button"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></button>
+                </div>
+        <div id="add-to-cart-div"><button id="add-to-cart-button"><a id="add-to-cart-button-link" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">Add to Cart</a></button></div>
+
+        </div>
+
+
+    }
+</div>
+<partial name="_pagermouse" model="@pager" />

@@ -1,0 +1,117 @@
+﻿body {
+    background-color: lightgrey;
+    font-family: Roboto,sans-serif;
+}
+
+#main-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border: 1px solid;
+    background-color: white;
+}
+
+#child-div {
+    display: flex;
+    flex-direction: column;
+    width: 24.6%;
+    border: 1px solid;
+    position: relative;
+    margin:2px;
+}
+
+    #child-div:hover {
+        background-color: white;
+        cursor: pointer;
+        border: 1px solid red;
+        text-decoration: underline 2px;
+        text-decoration-color: red;
+    }
+
+#crud-buttons-area {
+    height: 20%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.crud-button {
+    background-color: #e20713;
+    width: 30%;
+    margin: 1.5%;
+    
+}
+
+#price {
+    height: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 4%;
+    margin-bottom: 5%;
+    color: #e20713;
+    text-decoration: underline 5px;
+}
+
+#image {
+    padding-top:5%;
+    height: 250px;
+    width: 180px;
+    margin-left:18%;
+}
+
+#description {
+    height: 60px;
+    width: 100%;
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-top: 10%;
+    font-size: 13px;
+}
+
+#warranty {
+    position: absolute;
+    left: 1%;
+    color: lawngreen;
+}
+#discount {
+    position: absolute;
+    right: 0%;
+    width: 60px;
+    height: 40px;
+    background: #e20713;
+    color: #fff;
+    line-height: 40px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: -1px;
+    font-size: 21px;
+}
+#add-to-cart-div {
+    background: #e20713;
+    color: #fff;
+    width: 100%;
+    
+}
+#add-to-cart-button {
+    width: 100%;
+    height:41px;
+    background: #e20713;
+    color: white;
+    font-size:19px;
+}
+#add-to-cart-button:hover{
+    background-color:red;
+    text-decoration:underline;
+}
+#add-to-cart-button-link{
+    color:white;
+}
+#crud-menu{
+    display:flex;
+    flex-direction:column;
+}

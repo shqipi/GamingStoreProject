@@ -1,0 +1,52 @@
+﻿body {
+    background-color: lightgrey;
+}
+
+#headerKomponents {
+    list-style-type: none;
+    display: flex;
+    color: white;
+}
+
+.headerListItems {
+    padding: 10px;
+}
+
+/*advertisement {
+    height: 600px;
+    background-color: blue;
+}
+*/
+.rows {
+    height: 400px;
+    background-color: purple;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.row1-items {
+    height: 100%;
+    width: 24%;
+    background-color: aqua;
+}
+
+.row1-items-img {
+    height: 250px;
+    background-color: antiquewhite;
+}
+
+.row1-items-description {
+    height: 50px;
+    background-color: aquamarine;
+}
+
+.row1-items-prize {
+    height: 50px;
+    background-color: brown;
+}
+
+.row1-items-others {
+    height: 50px;
+    background-color: red;
+}
